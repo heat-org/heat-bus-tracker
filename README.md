@@ -13,4 +13,4 @@ Seguir los siguientes pasos:
 -Correr el comando : python gps-heat.py
 
 # Dependencias
-Se necesita tener instalado Python 2.7 python.org/download/releases/2.7/.
+Se necesita tener instalado [Python 2.7](python.org/download/releases/2.7).

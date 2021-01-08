@@ -20,6 +20,6 @@ class Util:
         dataJson = json.dumps(object.__dict__)
         response = requests.post(request_url, headers=constant.HEADERS, data=dataJson,verify=False)
         if response.status_code == 200:
-            return json.loads(response.content.decode('utf-8'))
+            return None
         else:
             return None

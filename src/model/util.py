@@ -10,7 +10,7 @@ class Util:
 
         response = requests.get(request_url,headers=constant.HEADERS)
         if response.status_code == 200:
-            return json.loads(response.content.decode('utf-8'))
+            return None
         else:
             return None
     

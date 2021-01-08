@@ -2,6 +2,8 @@ import time
 import serial
 import heatAPIConsumer 
 
+def logLocation(long,lat):
+    heatAPIConsumer.log_location(long,lat)
 
 def readString():
     while 1:
@@ -28,7 +30,7 @@ def printRMC(lines):
     print("Fix taken at:", getTime(lines[1] + lines[9], "%H%M%S.%f%d%m%y", "%a %b %d %H:%M:%S %Y"), "UTC")
     print("Status (A=OK,V=KO):", lines[2])
     latlng = getLatLng(lines[3], lines[5])
-    log_location(latlng[0], latlng[1])
+    logLocation(latlng[0], latlng[1])
     print("Lat,Long: ", latlng[0], lines[4], ", ", latlng[1], lines[6], sep='')
     print("Speed (knots):", lines[7])
     print("Track angle (deg):", lines[8])
@@ -140,10 +142,6 @@ def checksum(line):
         print("=====================================================================================")
         print(hex(checksum), "!=", hex(inputChecksum))
         return False
-
-def logLocation(long,lat):
-    heatAPIConsumer.log_location(long,lat)
-
 
 if __name__ == '__main__':
     ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)  # Open Serial port
